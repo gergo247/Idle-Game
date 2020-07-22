@@ -4,15 +4,41 @@ using UnityEngine;
 
 public class Character : MonoBehaviour
 {
-    // Start is called before the first frame update
+    //player health 0-1 scale
+    private float healthAmount;
+    public float maxHealth = 100;
+    public Rigidbody2D rb;
+    [HideInInspector]
+    public float currentHealth;
+
+    public bool dead;
+
+    [SerializeField]
+    Animator animator;
+
     void Start()
     {
-        
+        currentHealth = maxHealth;
+        animator = GetComponent<Animator>();
     }
-
-    // Update is called once per frame
-    void Update()
+    public float GetHealthAmount()
     {
-        
+        healthAmount = currentHealth / maxHealth;
+        healthAmount = Mathf.Clamp(healthAmount, 0f, 1f);
+        return healthAmount;
+    }
+    public void TakeDamage(float damage)
+    {
+        currentHealth -= damage;
+        if (currentHealth <= 0)
+        {
+            dead = true;
+            Die();
+        }
+    }
+    void Die()
+    {
+        animator.SetTrigger("Die");
+        Destroy(gameObject, 1.5f);
     }
 }
