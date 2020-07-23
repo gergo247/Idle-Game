@@ -11,6 +11,8 @@ public class Character : MonoBehaviour
     [HideInInspector]
     public float currentHealth;
 
+    public float damage = 10;
+    public float autoAttackCooldown = 1f;
     public bool dead;
 
     [SerializeField]
