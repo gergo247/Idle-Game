@@ -7,15 +7,18 @@ public class Player : MonoBehaviour
     private Character target;
     private Character character;
 
+    [SerializeField]
+    Animator animator;
 
-    bool canAttack;
+    bool canAttack = true;
     float autoAttackCurrentTime;
 
 
     void Start()
     {
         character = GetComponent<Character>();
-      
+        animator = GetComponent<Animator>();
+
     }
     void FixedUpdate()
     {
@@ -42,8 +45,9 @@ public class Player : MonoBehaviour
             }
             else
             {
-               //play attack animation
-
+                //play attack animation
+                animator.SetTrigger("Sword1");
+                Debug.Log("Attack animation");
 
                 autoAttackCurrentTime = 0;
             }
@@ -62,15 +66,21 @@ public class Player : MonoBehaviour
         Vector2 currentPosition = transform.position;
         if (targetGO != null)
         {
+            //Debug.Log("targetGO found");
+
             foreach (GameObject go in targetGO)
             {
                 Character tempTarget = go.GetComponent(typeof(Character)) as Character;
                 {
                     float distanceToTarget = Vector2.Distance(tempTarget.rb.position, currentPosition);
+                    Debug.Log("distanceToTarget :" + distanceToTarget);
+
                     if (distanceToTarget < minDist)
                     {
                         minDist = distanceToTarget;
                         target = tempTarget;
+                        Debug.Log("target set");
+
                     }
                 }
             }

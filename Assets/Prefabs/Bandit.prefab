@@ -294,7 +294,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4091804688429316773}
-  - component: {fileID: 4091804688429316775}
   m_Layer: 0
   m_Name: CharacterSprite
   m_TagString: Untagged
@@ -316,27 +315,6 @@ Transform:
   m_Father: {fileID: 1899531979791833062}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!50 &4091804688429316775
-Rigidbody2D:
-  serializedVersion: 4
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4091804688429316770}
-  m_BodyType: 0
-  m_Simulated: 1
-  m_UseFullKinematicContacts: 0
-  m_UseAutoMass: 0
-  m_Mass: 1
-  m_LinearDrag: 0
-  m_AngularDrag: 0.05
-  m_GravityScale: 0
-  m_Material: {fileID: 0}
-  m_Interpolate: 0
-  m_SleepingMode: 1
-  m_CollisionDetection: 0
-  m_Constraints: 0
 --- !u!1 &4270525141882195033
 GameObject:
   m_ObjectHideFlags: 0
@@ -429,9 +407,10 @@ GameObject:
   - component: {fileID: 1899531979791833062}
   - component: {fileID: 5278903659615564554}
   - component: {fileID: 3915904527595209619}
+  - component: {fileID: 2014351885393974801}
   m_Layer: 0
   m_Name: Bandit
-  m_TagString: Character
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -445,7 +424,7 @@ Transform:
   m_GameObject: {fileID: 7359814513632055871}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 3, y: 3, z: 3}
   m_Children:
   - {fileID: 6374874429636023828}
   - {fileID: 4091804688429316773}
@@ -516,10 +495,33 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxHealth: 100
-  rb: {fileID: 0}
+  rb: {fileID: 2014351885393974801}
   currentHealth: 0
+  damage: 10
+  autoAttackCooldown: 1
   dead: 0
   animator: {fileID: 0}
+--- !u!50 &2014351885393974801
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7359814513632055871}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
 --- !u!1 &8549720105977439995
 GameObject:
   m_ObjectHideFlags: 0
