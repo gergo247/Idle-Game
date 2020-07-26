@@ -12,7 +12,7 @@ public class Character : MonoBehaviour
     public float currentHealth;
 
     public float damage = 10;
-    public float autoAttackCooldown = 1f;
+    public float autoAttackCooldown = 0.4f;
     public bool dead;
 
     [SerializeField]
@@ -41,6 +41,6 @@ public class Character : MonoBehaviour
     void Die()
     {
         animator.SetTrigger("Die");
-        Destroy(gameObject, 1.5f);
+        Destroy(gameObject, 0.6f);
     }
 }

@@ -152,7 +152,7 @@ MonoBehaviour:
   rb: {fileID: 1252388682368468088}
   currentHealth: 0
   damage: 10
-  autoAttackCooldown: 1
+  autoAttackCooldown: 0.17
   dead: 0
   animator: {fileID: 0}
 --- !u!114 &4666100817567269845
@@ -167,6 +167,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bedd56fd886240c4daa8cc5337f0ae3e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  character: {fileID: 6001219955905395698}
   animator: {fileID: 0}
 --- !u!50 &1252388682368468088
 Rigidbody2D:

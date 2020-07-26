@@ -283,7 +283,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   healthStatusText: {fileID: 7323263300094159262}
-  healthStatusTransform: {fileID: 1796736441665548071}
+  healthStatusTransform: {fileID: 4393377107948113664}
   character: {fileID: 3915904527595209619}
 --- !u!1 &4091804688429316770
 GameObject:
@@ -408,6 +408,7 @@ GameObject:
   - component: {fileID: 5278903659615564554}
   - component: {fileID: 3915904527595209619}
   - component: {fileID: 2014351885393974801}
+  - component: {fileID: 6138383207310962216}
   m_Layer: 0
   m_Name: Bandit
   m_TagString: Enemy
@@ -522,6 +523,25 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!95 &6138383207310962216
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7359814513632055871}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 0}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &8549720105977439995
 GameObject:
   m_ObjectHideFlags: 0
@@ -556,7 +576,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0.010681152, y: 26.390274}
+  m_AnchoredPosition: {x: 0, y: 26.39096}
   m_SizeDelta: {x: 389.41122, y: 52.78192}
   m_Pivot: {x: 0, y: 0.5}
 --- !u!222 &3027281682712552955

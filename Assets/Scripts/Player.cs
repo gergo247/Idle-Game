@@ -5,6 +5,7 @@ using UnityEngine;
 public class Player : MonoBehaviour
 {
     private Character target;
+    [SerializeField]
     private Character character;
 
     [SerializeField]
