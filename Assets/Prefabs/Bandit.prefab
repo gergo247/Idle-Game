@@ -501,6 +501,8 @@ MonoBehaviour:
   damage: 10
   autoAttackCooldown: 1
   dead: 0
+  isTargetable: 0
+  moneyAward: 10
   animator: {fileID: 0}
 --- !u!50 &2014351885393974801
 Rigidbody2D:

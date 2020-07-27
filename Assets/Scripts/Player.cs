@@ -28,12 +28,11 @@ public class Player : MonoBehaviour
             return;
         }
 
-        if (target == null)
+        if (target == null || target.dead)
         {
             LookForClosestEnemy();
             return;
         }
-
         
         Attack();
     }
@@ -47,8 +46,30 @@ public class Player : MonoBehaviour
             else
             {
                 //play attack animation
-                animator.SetTrigger("Sword1");
-                Debug.Log("Attack animation");
+                // animator.ResetTrigger("Sword1");
+                int random = Random.Range(1, 4);
+                Debug.Log("Random attack :"+ random);
+                switch (random)
+                {
+                    case 1:
+                        animator.SetTrigger("Sword1");
+                        break;
+                    case 2:
+                        animator.SetTrigger("Sword2");
+                        break;
+                    case 3:
+                        animator.SetTrigger("Sword3");
+                        break;
+                    default:
+                        break;
+                }
+
+              //  animator.SetTrigger("Sword1");
+
+
+                //animator.Play("Sword1");
+
+                //Debug.Log("Attack animation");
 
                 autoAttackCurrentTime = 0;
             }
@@ -72,15 +93,16 @@ public class Player : MonoBehaviour
             foreach (GameObject go in targetGO)
             {
                 Character tempTarget = go.GetComponent(typeof(Character)) as Character;
+                if (!tempTarget.dead)
                 {
                     float distanceToTarget = Vector2.Distance(tempTarget.rb.position, currentPosition);
-                    Debug.Log("distanceToTarget :" + distanceToTarget);
+                  //  Debug.Log("distanceToTarget :" + distanceToTarget);
 
                     if (distanceToTarget < minDist)
                     {
                         minDist = distanceToTarget;
                         target = tempTarget;
-                        Debug.Log("target set");
+                        //Debug.Log("target set");
 
                     }
                 }

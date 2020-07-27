@@ -11,9 +11,12 @@ public class Character : MonoBehaviour
     [HideInInspector]
     public float currentHealth;
 
-    public float damage = 10;
+    public float damage = 50;
     public float autoAttackCooldown = 0.4f;
     public bool dead;
+    public bool isTargetable;
+
+    public float moneyAward = 10;
 
     [SerializeField]
     Animator animator;
@@ -40,7 +43,12 @@ public class Character : MonoBehaviour
     }
     void Die()
     {
+        Debug.Log("Money : " + moneyAward);
+
+        GameManager.theInstance.Money += moneyAward;
         animator.SetTrigger("Die");
-        Destroy(gameObject, 0.6f);
+        Destroy(gameObject);
+
+       // Destroy(gameObject, 0.6f);
     }
 }

@@ -434,6 +434,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3915904527595209619, guid: c1b44c2c2f3b7af4296f0265e6a9d1e6,
+        type: 3}
+      propertyPath: moneyAward
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 7359814513632055871, guid: c1b44c2c2f3b7af4296f0265e6a9d1e6,
         type: 3}
       propertyPath: m_Name
@@ -441,6 +446,36 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c1b44c2c2f3b7af4296f0265e6a9d1e6, type: 3}
+--- !u!1 &1499665830
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1499665831}
+  m_Layer: 0
+  m_Name: GameObject
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1499665831
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1499665830}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -2.3851676, y: 4.8578014, z: -1.568849}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 9
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1539828756
 GameObject:
   m_ObjectHideFlags: 0
@@ -470,6 +505,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2738d3a01ebc51545bbf47ab1f829d3b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Enemies:
+  - {fileID: 7359814513632055871, guid: c1b44c2c2f3b7af4296f0265e6a9d1e6, type: 3}
+  SpawnPoints:
+  - {fileID: 537852630}
+  - {fileID: 790835050}
+  - {fileID: 677018320}
+  Money: 0
 --- !u!4 &1539828758
 Transform:
   m_ObjectHideFlags: 0
@@ -496,6 +538,7 @@ GameObject:
   - component: {fileID: 1564843972}
   - component: {fileID: 1564843971}
   - component: {fileID: 1564843970}
+  - component: {fileID: 1564843974}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -584,6 +627,19 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!114 &1564843974
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1564843969}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6137b10c8f42b9c49adee9a818971718, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Money: {fileID: 2002079488}
 --- !u!1 &1799530139
 GameObject:
   m_ObjectHideFlags: 0
@@ -663,7 +719,7 @@ GameObject:
   - component: {fileID: 2002079488}
   - component: {fileID: 2002079487}
   m_Layer: 5
-  m_Name: Text
+  m_Name: Money
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -954,6 +1010,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_FlipX
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6001219955905395698, guid: 766c53429c7b066409142ec2fcff54ba,
+        type: 3}
+      propertyPath: autoAttackCooldown
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6001219955905395698, guid: 766c53429c7b066409142ec2fcff54ba,
+        type: 3}
+      propertyPath: damage
+      value: 50
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 766c53429c7b066409142ec2fcff54ba, type: 3}

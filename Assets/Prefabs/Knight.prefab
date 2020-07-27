@@ -152,8 +152,10 @@ MonoBehaviour:
   rb: {fileID: 1252388682368468088}
   currentHealth: 0
   damage: 10
-  autoAttackCooldown: 0.17
+  autoAttackCooldown: 1
   dead: 0
+  isTargetable: 0
+  moneyAward: 0
   animator: {fileID: 0}
 --- !u!114 &4666100817567269845
 MonoBehaviour:
