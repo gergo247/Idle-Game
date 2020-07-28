@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
+    public static Player theInstance;
+
+
     private Character target;
     [SerializeField]
     private Character character;
@@ -14,9 +17,14 @@ public class Player : MonoBehaviour
     bool canAttack = true;
     float autoAttackCurrentTime;
 
-
+    public float baseDamage = 10;
+    public float upgradeDamage = 0;
+    public float autoAttackCooldown = 1f;
     void Start()
     {
+        if (theInstance == null)
+            theInstance = this;
+
         character = GetComponent<Character>();
         animator = GetComponent<Animator>();
 
@@ -39,7 +47,7 @@ public class Player : MonoBehaviour
     void Attack()
     {
         if (canAttack)
-            if (autoAttackCurrentTime < character.autoAttackCooldown)
+            if (autoAttackCurrentTime < autoAttackCooldown)
             {
                 autoAttackCurrentTime += Time.deltaTime;
             }
@@ -63,14 +71,6 @@ public class Player : MonoBehaviour
                     default:
                         break;
                 }
-
-              //  animator.SetTrigger("Sword1");
-
-
-                //animator.Play("Sword1");
-
-                //Debug.Log("Attack animation");
-
                 autoAttackCurrentTime = 0;
             }
     }
@@ -78,7 +78,9 @@ public class Player : MonoBehaviour
     public void DamageTargetFromAnimation()
     {
         if (target != null)
-            target.TakeDamage(character.damage);
+            target.TakeDamage(baseDamage + upgradeDamage);
+
+       // Debug.Log("Damage : " + (baseDamage + upgradeDamage));
     }
     void LookForClosestEnemy()
     {
@@ -108,5 +110,11 @@ public class Player : MonoBehaviour
                 }
             }
         }
+    }
+
+    public void UpgradeDamage(float damageUp)
+    {
+        Debug.Log("Damage up by: " + (damageUp));
+        upgradeDamage += damageUp;
     }
 }

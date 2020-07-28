@@ -8,13 +8,14 @@ public class GameManager : MonoBehaviour
     public List<GameObject> Enemies;
     public List<GameObject> SpawnPoints;
 
-    public float Money;
+    public float Money = 100;
     public static GameManager theInstance;
     void Start()
     {
         if (theInstance == null)
             theInstance = this;
 
+        Money = 100;
     }
     void Update()
     {

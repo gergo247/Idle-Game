@@ -11,8 +11,7 @@ public class Character : MonoBehaviour
     [HideInInspector]
     public float currentHealth;
 
-    public float damage = 50;
-    public float autoAttackCooldown = 0.4f;
+    
     public bool dead;
     public bool isTargetable;
 
