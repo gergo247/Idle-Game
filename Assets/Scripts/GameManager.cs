@@ -15,7 +15,7 @@ public class GameManager : MonoBehaviour
         if (theInstance == null)
             theInstance = this;
 
-        Money = 100;
+        Money = 1000;
     }
     void Update()
     {

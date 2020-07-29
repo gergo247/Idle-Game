@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -20,6 +21,8 @@ public class Player : MonoBehaviour
     public float baseDamage = 10;
     public float upgradeDamage = 0;
     public float autoAttackCooldown = 1f;
+
+    bool swordAttackUnlocked = false;
     void Start()
     {
         if (theInstance == null)
@@ -41,7 +44,7 @@ public class Player : MonoBehaviour
             LookForClosestEnemy();
             return;
         }
-        
+
         Attack();
     }
     void Attack()
@@ -55,24 +58,51 @@ public class Player : MonoBehaviour
             {
                 //play attack animation
                 // animator.ResetTrigger("Sword1");
-                int random = Random.Range(1, 4);
-                Debug.Log("Random attack :"+ random);
-                switch (random)
+                int random = UnityEngine.Random.Range(1, 4);
+                Debug.Log("Random attack :" + random);
+                if (swordAttackUnlocked)
                 {
-                    case 1:
-                        animator.SetTrigger("Sword1");
-                        break;
-                    case 2:
-                        animator.SetTrigger("Sword2");
-                        break;
-                    case 3:
-                        animator.SetTrigger("Sword3");
-                        break;
-                    default:
-                        break;
+                    switch (random)
+                    {
+                        case 1:
+                            animator.SetTrigger("Sword1");
+                            break;
+                        case 2:
+                            animator.SetTrigger("Sword2");
+                            break;
+                        case 3:
+                            animator.SetTrigger("Sword3");
+                            break;
+
+                        default:
+                            break;
+                    }
+                }
+                else
+                {
+                    switch (random)
+                    {
+                        case 1:
+                            animator.SetTrigger("Unarmed1");
+                            break;
+                        case 2:
+                            animator.SetTrigger("Unarmed2");
+                            break;
+                        case 3:
+                            animator.SetTrigger("Unarmed3");
+                            break;
+
+                        default:
+                            break;
+                    }
                 }
                 autoAttackCurrentTime = 0;
             }
+    }
+
+    public void UnlockSwordAttack()
+    {
+        swordAttackUnlocked = true;
     }
 
     public void DamageTargetFromAnimation()
@@ -80,7 +110,7 @@ public class Player : MonoBehaviour
         if (target != null)
             target.TakeDamage(baseDamage + upgradeDamage);
 
-       // Debug.Log("Damage : " + (baseDamage + upgradeDamage));
+        // Debug.Log("Damage : " + (baseDamage + upgradeDamage));
     }
     void LookForClosestEnemy()
     {
@@ -98,7 +128,7 @@ public class Player : MonoBehaviour
                 if (!tempTarget.dead)
                 {
                     float distanceToTarget = Vector2.Distance(tempTarget.rb.position, currentPosition);
-                  //  Debug.Log("distanceToTarget :" + distanceToTarget);
+                    //  Debug.Log("distanceToTarget :" + distanceToTarget);
 
                     if (distanceToTarget < minDist)
                     {

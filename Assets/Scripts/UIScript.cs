@@ -33,10 +33,18 @@ public class UIScript : MonoBehaviour
 
     public void UpgradeDamageButton()
     {
-        if (GameManager.theInstance.Money > 100)
+        if (GameManager.theInstance.Money >= 100)
         {
             GameManager.theInstance.Money -= 100;
             Player.theInstance.UpgradeDamage(3);
+        }
+    }
+    public void UnlockSwordAttack()
+    {
+        if (GameManager.theInstance.Money >= 1000)
+        {
+            GameManager.theInstance.Money -= 1000;
+            Player.theInstance.UnlockSwordAttack();
         }
     }
 
